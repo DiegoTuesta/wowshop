@@ -1,23 +1,25 @@
-
 import "./App.css";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import NewsDetail from "./pages/NewsDetail";
+import Nabvar from "./components/Nabvar";
+import Loader from "./components/Loader";
+import {useSelector} from "react-redux"
 
 function App() {
+  const isLoading = useSelector( state => state.loader )
   return (
-    <header className="header">
-      <nav className="navbar">
-        <a className="navbar-logo">
-            WOW Shop
-        </a>
-        
-        <div className="navbar-menu">
-          <ul className="navbar-list">
-            <li className="navbar-item"> <a href=""><i className="fa-solid fa-user"></i></a> </li>
-            <li className="navbar-item" > <a href=""> <i className="fa-solid fa-shop"></i></a></li>
-            <li className="navbar-item"> <a href=""><i className="fa-solid fa-cart-shopping"></i></a> </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <HashRouter>
+    { isLoading && < Loader /> }
+    <Nabvar />
+    <Routes>
+      <Route element={<Home />} path="/" />
+      <Route element={<Login />} path="/login" />
+      <Route element={<NewsDetail />} path="/news/:id" />
+     
+    </Routes>
+  </HashRouter>
   );
 }
 
