@@ -1,0 +1,10 @@
+.header {
+    @apply w-[100%] h-[60px]  flex justify-around items-center
+}
+.nav_a {
+    @apply font-extrabold text-[white] text-[23px]
+}
+
+.lista {
+    @apply flex text-[25px] gap-5
+}
