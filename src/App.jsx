@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import "./App.css";
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
         <a className="navbar-logo">
             WOW Shop
         </a>
+        
         <div className="navbar-menu">
           <ul className="navbar-list">
             <li className="navbar-item"> <a href=""><i className="fa-solid fa-user"></i></a> </li>
