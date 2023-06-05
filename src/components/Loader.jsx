@@ -1,4 +1,4 @@
-
+import '../styles/loader.css'
 
 function Loader() {
   
