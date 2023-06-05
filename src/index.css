@@ -1,5 +1,75 @@
+:root{
+    --bg-color: #d8d6d6;
+    --bg-color-dark: #252525;
+    --txt-white-nav : white;
+    --txt-white: white;
+    --txt-sub-white: #dcdcdc;
+    --txt-black: black;
+    --txt-sub-black: #4a4a4a;
+    --bg-loading: rgba(255,255,255, .8);
+    --primary-color : #ee5601;
+    --bs-color: #dcdcdc;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+    /* tamaño de fuente */
+    --big-font: 2rem;
+    --medium-font: 1.5rem;
+    --normal-font: 1rem;
+    --small-font: .8rem;
+    --tiny-font: .75rem;
 
+    /* font-weight */
+    --font-tiny: 300;
+    --font-normal: 400;
+    --font-medium: 600;
+    --font-bold: 700;
+
+    --z-fixed: 1;
+    --z-modal: 2;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100dvh;
+}
+ul{
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    user-select: none;
+}
+.container {
+    /* top: 65px; */
+    width: 100%;
+    height: 100dvh;
+    /* background-color: red; */
+}
+
+.main{
+    display: flex;
+    width: 95%;
+    /* background-color: #dd191a; */
+    height: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+}
+.main-grid {
+    display: grid;
+    width: 98%;
+    /* background-color: #dd191a; */
+    height: 100%;
+    margin: 4.4rem auto 1rem auto;
+    grid-template-columns: 30% 68% ;
+    gap: 2%;
+}

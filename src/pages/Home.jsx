@@ -1,25 +1,43 @@
-import {useState, useEffect } from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { isLoading } from "../store/slice/loader.slice";
 import axios from "axios";
-import { getProductsThunk, getProductsXCategoryThunk, getProductsXNameThunk } from "../store/slice/product.slice";
+import {
+  getProductsThunk,
+  getProductsXCategoryThunk,
+  getProductsXNameThunk,
+} from "../store/slice/product.slice";
+import Aside from "../components/Aside";
+import ListProducts from "../components/ListProducts";
+import Categories from "../containers/Categories";
 
 const Home = () => {
+  const [category, setCategories] = useState([]);
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.product);
 
-    const [category, setCategories] = useState([])
-    const dispatch = useDispatch();
-    const data = useSelector(state => state.product )
-    
-    useEffect( ()=> {
-        dispatch( getProductsThunk())
-        axios.get("https://e-commerce-api-v2.academlo.tech/api/v1/categories")
-        .then( category => setCategories(category.data) )
-        .catch(console.error)
-    }, [] )
-    
-    return (
-        <div className="bg-bg_claro w-[100%] min-h-screen flex gap-2">
-            <aside className=" flex flex-col w-[17%] h-screen bg-bg_claro shadow-[0px_0px_7px]">
+  useEffect(() => {
+    dispatch(getProductsThunk());
+    axios
+      .get("https://e-commerce-api-v2.academlo.tech/api/v1/categories")
+      .then((category) => setCategories(category.data))
+      .catch(console.error);
+  }, []);
+
+  return (
+    <div className="container">
+      <div className="main">
+        <div className="main-grid">
+          <Aside>
+            <Categories data={category} />
+          </Aside>
+          <ListProducts dataProduct={data} />
+
+
+        </div>
+      </div>
+
+      {/* <aside className=" flex flex-col w-[17%] h-screen bg-bg_claro shadow-[0px_0px_7px]">
                 <div className='h-[100px] text-center pb-10'>
                     <h3 className='py-2 text-dark font-extrabold text-[20px]'>Categoria</h3>
                     <tr/>
@@ -51,9 +69,9 @@ const Home = () => {
                 
 
              
-            </main>
-        </div>
-    );
+            </main> */}
+    </div>
+  );
 };
 
 export default Home;
