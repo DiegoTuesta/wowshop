@@ -17,7 +17,7 @@ function Nabvar() {
               <Link to={"/"} className="nav__link">
                 <i className="fa-solid fa-house"></i> Home
               </Link>
-              <Link to={"/"} className="nav__link">
+              <Link to="/login" className="nav__link">
                 <i className="fa-solid fa-user"></i> login
               </Link>
             </li>
