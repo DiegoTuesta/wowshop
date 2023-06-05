@@ -22,12 +22,20 @@ export const getProductsThunk = () => dispatch => {
     .finally(() => dispatch( isLoading(false) ))
 }
 
-export const getProductsXCategoryThunk = (idcategory) => dispatch => {
+export const getProductsXCategoryThunk = (idCategory) => dispatch => {
     dispatch( isLoading(true) )
-    axios.get(`https://e-commerce-api-v2.academlo.tech/api/v1/products?categoryId=${idCategory}`)
-    .then(product => dispatch( setProduct(product.data) ) )
-    .catch(console.error)
-    .finally(() => dispatch( isLoading(false) ))
+    if (idCategory===0) {
+        axios.get(`https://e-commerce-api-v2.academlo.tech/api/v1/products`)
+        .then(product => dispatch( setProduct(product.data) ) )
+        .catch(console.error)
+        .finally(() => dispatch( isLoading(false) ))
+    }else{
+        axios.get(`https://e-commerce-api-v2.academlo.tech/api/v1/products?categoryId=${idCategory}`)
+        .then(product => dispatch( setProduct(product.data) ) )
+        .catch(console.error)
+        .finally(() => dispatch( isLoading(false) ))
+    }
+   
 }
 
 export const getProductsXNameThunk = (product) => dispatch => {

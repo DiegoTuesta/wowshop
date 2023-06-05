@@ -4,7 +4,6 @@ import { isLoading } from "../store/slice/loader.slice";
 import axios from "axios";
 import {
   getProductsThunk,
-  getProductsXCategoryThunk,
   getProductsXNameThunk,
 } from "../store/slice/product.slice";
 import Aside from "../components/Aside";
