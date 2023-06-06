@@ -1,56 +1,55 @@
+
 import { useForm } from "react-hook-form";
+import "../styles/login.css";
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from "react-redux";
+import { loginThunk } from "../store/slice/user.slice";
 
 const Login = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+   const tokens = useSelector(state => state.token)
 
-    const [ emailValue, setEmailValue ] = useState("")
-    const [ passwordValue, setPasswordValue ] = useState("")
-   
-    const handleSubmit = e => {
-        e.preventDefault()
-        const data = {
-            email : emailValue,
-            password : passwordValue
-        }
+  const {register , handleSubmit} = useForm()
 
-        console.log(data)
+ const formuData = async (data) =>  {
+     try {
+    const dates =   dispatch(loginThunk(data))
+    
+  } catch (error) {
+    console.log(error)
+  }finally{
+    if (tokens.length > 0) {
+        navigate("/")
+    }else{
+        navigate("/login")
     }
+  }
+  };
 
-    // joel cabro
 
 
+  return (
+   
 
-    return (
-        <>
-          <form onSubmit={ e => handleSubmit(e) }>
-            <h1>Inicio de sesión</h1>
-            <div className="input-group">
-                <label htmlFor="email">Correo electronico</label>
-                <input 
-                type="email" 
-                id="email" 
-                placeholder="Escribe tu correo..."
-                onChange={ e => setEmailValue( e.target.value ) }
-                value={ emailValue }
-                required
-                />
-            </div>
-            <div className="input-group">
-                <label htmlFor="password">Contraseña</label>
-                <input 
-                type="password" 
-                id="password"
-                placeholder="Escribe tu contraseña..."
-                onChange={ e => setPasswordValue(e.target.value) }
-                value={ passwordValue }
-                required
-                />
-            </div>
-      
 
-            <button type="submit">Iniciar sesión</button>
-        </form>
-        </>
-    );
+    <div className="login-box">
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit(formuData)}>
+        <div className="user-box">
+          <input type="email" name="email" id="email" {...register("email")}  />
+          <label>Username</label>
+        </div>
+        <div className="user-box">
+          <input type="password" name="password" id="password" {...register("password")} />
+          <label>Password</label>
+        </div>
+       <button type="submit">
+        Ingresar
+       </button>
+      </form>
+    </div>
+  );
 };
 
 export default Login;
