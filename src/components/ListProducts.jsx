@@ -22,7 +22,7 @@ const ListProducts = ({ dataProduct }) => {
   return (
     <div className="container-products">
       <div className="container-header-product">
-        <div className="container-input" >
+        <div className="container-select" >
           <label htmlFor="">Order by:</label>
           <select className="input-select">
             <option value="0">-Select-</option>
@@ -30,7 +30,7 @@ const ListProducts = ({ dataProduct }) => {
             <option value="0">Name</option>
           </select>
         </div>
-        <div>
+        <div className="container-input">
           <input type="text" onKeyDown={handleKeyEnter} onChange={(e) => setStr(e.target.value) } className="input-search" placeholder="Enter" />
         </div>
       </div>

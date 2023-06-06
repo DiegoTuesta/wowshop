@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 function Nabvar() {
+  const token = localStorage.getItem("token");
+
+  const showMenu = () => {
+    alert("hola")
+    document.querySelector(".nav__menu").classList.toggle("show--menu");
+  }
   return (
     <header className="header">
       <nav className="nav">
@@ -20,6 +26,11 @@ function Nabvar() {
               <Link to="/login" className="nav__link">
                 <i className="fa-solid fa-user"></i> login
               </Link>
+              {token && (
+                <Link to="/purchases" className="nav__link">
+                  <i className="fa-sharp fa-solid fa-shop-lock"></i> Purchases
+                </Link>
+              )}
             </li>
           </ul>
         </div>
@@ -31,7 +42,7 @@ function Nabvar() {
             <i className="fa-solid fa-cart-shopping"></i>
             <span className="notify">0</span>
           </button>
-          <button type="button" className="nav__btn btn--menu">
+          <button onClick={showMenu  } type="button" className="nav__btn btn--menu">
             <i className="fa-solid fa-ellipsis-vertical"></i>
           </button>
         </div>

@@ -28,7 +28,7 @@
 .card__title label:nth-child(1){
     font-size: var(--tiny-font);
     height: 20%;
-    color: var(--txt-sub-black) ;
+    color: var(--txt-sub-color) ;
     text-transform: uppercase;
     font-weight: var(--font-normal);
     /* background-color: aquamarine; */
@@ -37,14 +37,14 @@
     font-size: var(--normal-font);
     /* background-color: red; */
     height: 60%;
-    color: var(--txt-black) ;
+    color: var(--txt-color) ;
     font-weight: var(--font-bold);
 }
 .card__title label:nth-child(3){
     font-size: var(--tiny-font);
     height: 20%;
     /* background-color: blue */
-    color: var(--txt-sub-black) ;
+    color: var(--txt-sub-color) ;
     text-align: end;
     text-transform: uppercase;
     font-weight: var(--font-normal);
