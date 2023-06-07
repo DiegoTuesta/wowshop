@@ -1,7 +1,13 @@
 import '../styles/containers/products.css'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { addProductCartThunk } from '../store/slice/cart.slice'
 
 const Products = ({dataProduct}) => {
+
+    const dispatch = useDispatch()
+    const cart = useSelector(state => state.cart)
+    // console.log(cart)
+
   return (
         <article className="card-product">
             <div className="card__img">
@@ -18,7 +24,7 @@ const Products = ({dataProduct}) => {
                 </div>
             </div>
             <div className="card__footer">
-                <button className="btn-shop">Add Cart</button>
+                <button onClick={() => dispatch( addProductCartThunk({"quantity":1, "productId":dataProduct.id}) )} className="btn-shop">Add Cart</button>
             </div>
         </article>
   )

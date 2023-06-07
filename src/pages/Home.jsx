@@ -6,6 +6,7 @@ import {
   getProductsThunk,
   getProductsXNameThunk,
 } from "../store/slice/product.slice";
+import { getProductCartThunk } from "../store/slice/cart.slice";
 import Aside from "../components/Aside";
 import ListProducts from "../components/ListProducts";
 import Categories from "../containers/Categories";
@@ -17,6 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getProductsThunk());
+    dispatch( getProductCartThunk() )
     axios
       .get("https://e-commerce-api-v2.academlo.tech/api/v1/categories")
       .then((category) => setCategories(category.data))
