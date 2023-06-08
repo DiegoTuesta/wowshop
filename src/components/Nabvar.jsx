@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 import Cart from "./Cart";
+import { useSelector } from "react-redux";
+
 // import { useState } from "react";
 function Nabvar() {
-  const token = localStorage.getItem("token");
 
+
+  const token = localStorage.getItem("token");
+  const cart = useSelector(state => state.cart)
   const showCart = () => {
     document.querySelector(".cart-shop").classList.toggle("show--cart");
   };
@@ -50,14 +54,16 @@ function Nabvar() {
             <button type="button" className="nav__btn btn--dark">
               <i className="fa-solid fa-moon"></i>
             </button>
-            <button
-              onClick={showCart}
-              type="button"
-              className="nav__btn btn--cart"
-            >
-              <i className="fa-solid fa-cart-shopping"></i>
-              <span className="notify">0</span>
-            </button>
+            {token && (
+              <button
+                onClick={showCart}
+                type="button"
+                className="nav__btn btn--cart"
+              >
+                <i className="fa-solid fa-cart-shopping"></i>
+                <span className={cart.length > 0 ? "notify show--notify" : "notify" }> {cart.reduce((acc, cv) => acc + cv.quantity, 0 )} </span>
+              </button>
+            )}
             {token && (
               <button type="button" className="nav__btn btn--user">
                 <i className="fa-solid fa-user"></i>
@@ -74,7 +80,6 @@ function Nabvar() {
             >
               <i className="fa-solid fa-ellipsis-vertical"></i>
             </button>
-           
           </div>
         </nav>
       </header>

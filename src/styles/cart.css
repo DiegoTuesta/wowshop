@@ -9,7 +9,7 @@
     width: 100%;
     height: calc(100vh - 60px);
     background-color: var(--bg-color);
-    z-index: var(--z-fixed);
+    z-index: var(--z-modal);
     transition: right .5s ease-in-out;
   }
   

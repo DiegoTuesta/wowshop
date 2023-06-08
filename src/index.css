@@ -77,12 +77,17 @@ button{
     gap: 2%;
 }
   
+.main-grid-detail{
+    display: grid;
+    width: 98%;
+    /* background-color: #dd191a; */
+    height: 100%;
+    margin: 4.4rem auto 1rem auto;
+    grid-template-columns: 78% 20% ;
+    gap: 2%;
+}
   
-  /* Show Notify */
-  .show--notify {
-    opacity: 1;
-    visibility: visible;
-  }
+
 
 /* @media (min-width: 768px){
     .nav__list{
