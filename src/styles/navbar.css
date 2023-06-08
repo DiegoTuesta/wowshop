@@ -8,6 +8,7 @@ header {
     background-color: var(--primary-color);
     box-shadow: 5px 5px 5px 5px var(--bs-color);
     /* margin: 0 0 65px 0; */
+    z-index: 10;
 }
 .nav{
     width: 95%;
