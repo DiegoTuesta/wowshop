@@ -57,6 +57,8 @@
     align-items: center;
     padding: .3rem;
     font-size: var(--normal-font);
+    color: var(--txt-color);
+    font-weight: var(--font-bold);
 }
 .card__footer{
     height: 3.7rem;
@@ -82,4 +84,7 @@
 .card-product:hover  .btn-shop {
     display: block;
     /* cursor: pointer; */
+}
+.link-article{
+    list-style: none;
 }
