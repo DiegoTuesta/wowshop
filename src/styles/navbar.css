@@ -1,6 +1,7 @@
 @import url("../index.css");
 
 header {
+
   position: fixed;
   width: 100%;
   /* height: 60px; */
@@ -9,6 +10,7 @@ header {
   /* margin: 0 0 65px 0; */
   z-index: var(--z-modal);
 }
+
 .nav {
   width: 95%;
   height: 60px;
@@ -94,30 +96,18 @@ header {
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
-
-/* .btn--user:hover .dropdown {
-  display: block;
-  opacity: 1;
-  width: 5rem;
-
-} */
-
-/* .dropdown-li:hover .dropdown {
-  display: block;
-  width: 5rem;
-
-  opacity: 1;
-} */
-
-.dropdown {
-  background-color: var(--bg-color);
-  width: auto;
-  height: 7rem;
-  position: absolute;
-  right: 0;
+.btn--user ul {
+  display: none;
   top: 100%;
-  opacity: 0;
-  visibility: hidden;
+  right: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+}
+.btn--user ul li {
+    float:none;
+    width:150px
+   }
+.btn--user ul a {
   display: block;
   box-shadow: 1px 1px 1px 1px var(--bs-color);
   /* border-radius: 5px; */
@@ -168,11 +158,9 @@ header {
   font-weight: var(--font-normal);
   border: 1px solid var(--primary-color);
 }
-.dropdown li:nth-child(3) button:hover{
-
-  width: 100%;
-  background-color: var(--primary-color);
-  color: var(--txt-white-nav);
+.btn--user:hover > ul {
+  display: block;
+  position: absolute;
 }
 /* Show Menu */
 /* .show--menu {
