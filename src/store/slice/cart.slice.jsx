@@ -51,5 +51,16 @@ export const deleteProductCartThunk = (data) => dispatch => {
     .finally(() => dispatch( isLoading(false) ))
 }
 
+export const addPurchasesThunk = () => dispatch => {
+    dispatch( isLoading(true) )
+    axios.post(`https://e-commerce-api-v2.academlo.tech/api/v1/purchases`,{},getConfigHttp())
+    .then(() => dispatch( getProductCartThunk()) )
+    .catch(err => 
+        err.response.status ? alert("Ya agregó el producto") : alert("codigo de erro: "+err.response.status)
+    )
+    .finally(() => dispatch( isLoading(false) ))
+}
+
+
 
 
