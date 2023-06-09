@@ -1,7 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
 import Cart from "./Cart";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../store/slice/user.slice";
+
 
 
 // import { useState } from "react";
@@ -14,6 +16,9 @@ function Nabvar() {
   const cart = useSelector(state => state.cart)
   const user = useSelector(state => state.user)
   const navigate =useNavigate()
+  const dispatch = useDispatch()
+
+  // console.log(user)
 
   // console.log(user)
   const showDropDown = () => {
@@ -27,8 +32,13 @@ function Nabvar() {
   };
   const logout = () => {
     localStorage.removeItem("token")
+    dispatch( setUser({}))
     navigate("/")
   }
+
+  // useEffect( ()=>{
+  //   user = useSelector(state => state.user)
+  // }, [dispatch] )
   return (
     <>
       <header className="header">
