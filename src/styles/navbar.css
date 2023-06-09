@@ -96,52 +96,69 @@ header {
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
-.btn--user  {
- position: relative;
+.btn--user ul {
+  display: none;
+  top: 100%;
+  right: 0;
+  padding: 0;
+  background-color: var(--bg-color);
 }
-
-
- .btn--user ul{
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  width: 100px;
-  height: 100px;
-  top: 55px;
-  left: -30px;
-  gap: 10px;
-  background-color: rgb(0, 0, 0,.75);
-  border: #EE5601 2px solid;
-  border-radius: 10px;
-  justify-content: center;
-}
-ul a {
-  text-decoration: none;
-  color: #EE5601;
-  font-weight: bold;
-  font-size:1.1rem;
-}
-
-/* .btn--user ul li {
+.btn--user ul li {
     float:none;
     width:150px
    }
 .btn--user ul a {
   display: block;
+  box-shadow: 1px 1px 1px 1px var(--bs-color);
+  /* border-radius: 5px; */
+  border: 1px solid var(--primary-color);
+  /* background: red; */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.dropdown li {
+  list-style: none;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--txt-color);
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 15px;
-  padding: 10px;
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: var(--normal-font);
+  padding: 1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.dropdown li:nth-child(3){
+  display: flex;
+  flex-direction: column;
+}
+.dropdown li:nth-child(3) div{
+  height: 1px;
+  width: 100%;
+  background-color: var(--bs-color);
+  color: transparent;
+  margin: 2.5rem 0 .3rem 0;
+}
+.dropdown li:nth-child(1):hover{
+  background-color: var(--bs-color);
+}
+.dropdown li:nth-child(2):hover{
+  background-color: var(--bs-color);
+}
+.dropdown li:nth-child(3) button{
+
+  font-size: var(--normal-font);
+  width: 100%;
+  margin: 0 0 2rem 0;
+  padding: .3rem;
+
+  border-radius: 40px;
+  font-weight: var(--font-normal);
+  border: 1px solid var(--primary-color);
 }
 .btn--user:hover > ul {
   display: block;
   position: absolute;
-} */
+}
 /* Show Menu */
 /* .show--menu {
     left: 0;
@@ -213,6 +230,11 @@ ul a {
 }
  /* Show Notify */
   .show--notify {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .show--dropdown {
     opacity: 1;
     visibility: visible;
   }

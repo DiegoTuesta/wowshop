@@ -1,20 +1,6 @@
-.formulario {
-    width: 300px;
-    height: 400px;
-    background-color: chocolate;
-    display: grid;
-    grid-template-rows: repeat(5,1fr);
-    padding-top: 100px;
+.profile h1 {
+    font-size: 20px;
+    color: red;
+    padding: 100px;
+    
 }
-
-.formulario_caja {
-    display: grid;
-    place-content: center;
-    place-items: center;
-}
-
-.formulario_btn {
-    display: grid;
-    place-content: center;
-}
-

@@ -50,6 +50,11 @@
     font-weight: var(--font-normal);
 }
 
+/* .product__quantity{
+    background-color: aqua;
+    width: 100%;
+} */
+
 .card__price{
     height: 2rem;
     /* background-color: yellow; */
@@ -85,6 +90,7 @@
     display: block;
     /* cursor: pointer; */
 }
-.link-article{
-    list-style: none;
-}
+/* .link-article:hover{
+    cursor: pointer;
+} */
+
