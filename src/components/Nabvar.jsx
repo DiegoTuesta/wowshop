@@ -32,6 +32,9 @@ function Nabvar() {
     dispatch( setUser({}))
     navigate("/")
   }
+  const modeDark = () => {
+    document.documentElement.classList.toggle('dark')
+  };
 
   // useEffect( ()=>{
   //   user = useSelector(state => state.user)
@@ -77,7 +80,7 @@ function Nabvar() {
             </ul>
           </div>
           <div className="nav__buttons">
-            <button type="button" className="nav__btn btn--dark">
+            <button onClick={modeDark } type="button" className="nav__btn btn--dark">
               <i className="fa-solid fa-moon"></i>
             </button>
             {token && (
