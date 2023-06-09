@@ -3,7 +3,7 @@ import "../styles/navbar.css";
 import Cart from "./Cart";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../store/slice/user.slice";
-
+import { isDark } from "../store/slice/dark.slice";
 
 // import { useState } from "react";
 function Nabvar() {
@@ -14,6 +14,7 @@ function Nabvar() {
   const user = useSelector(state => state.user)
   const navigate =useNavigate()
   const dispatch = useDispatch()
+  const dark = useSelector(state => state.dark)
 
   // console.log(user)
 
@@ -34,6 +35,7 @@ function Nabvar() {
   }
   const modeDark = () => {
     document.documentElement.classList.toggle('dark')
+    dispatch( isDark() )
   };
 
   // useEffect( ()=>{
@@ -81,7 +83,7 @@ function Nabvar() {
           </div>
           <div className="nav__buttons">
             <button onClick={modeDark } type="button" className="nav__btn btn--dark">
-              <i className="fa-solid fa-moon"></i>
+              <i className={ dark? "fa-solid fa-sun" :"fa-solid fa-moon"}></i>
             </button>
             {token && (
               <button

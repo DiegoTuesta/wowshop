@@ -163,7 +163,7 @@ header {
   width: 100%;
   margin: 0 0 2rem 0;
   padding: .3rem;
-
+  color: var(--txt-color);
   border-radius: 40px;
   font-weight: var(--font-normal);
   border: 1px solid var(--primary-color);
