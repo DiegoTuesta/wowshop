@@ -98,7 +98,7 @@ function Nabvar() {
                 <i className="fa-solid fa-user"></i>
                 <ul className="dropdown">
                   <li>{user.email}</li>
-                  <li>Profile</li>
+                  <li> <Link to={"/profile"} >Profile</Link>  </li>
                   <li><div>1</div><button onClick={() => logout() }>Cerrar Sesion</button></li>
                 </ul>
               </div>
