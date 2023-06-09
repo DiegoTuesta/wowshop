@@ -17,6 +17,18 @@
     margin: 0 0 1rem 0;
     width: 60%;
 }
+.container-select select{
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+}
+
+.container-select label{
+    color: var(--txt-color);
+}
+.container-input input{
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+}
 .container-input{
     margin: 0 0 1rem 0;
     width: 40%;

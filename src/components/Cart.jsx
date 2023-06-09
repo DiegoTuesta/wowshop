@@ -1,10 +1,11 @@
 import "../styles/cart.css";
 import ProductCart from "../containers/ProductCart";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addPurchasesThunk } from "../store/slice/cart.slice";
 
 const Cart = () => {
   const data = useSelector((state) => state.cart);
-
+  const dispatch = useDispatch()
   return (
     <div className="cart-shop">
       <div className="cart__container-shop">
@@ -55,9 +56,12 @@ const Cart = () => {
                 .toFixed(2)}
             </span>
           </div>
-          <button type="button" className="cart__btn btn--buy">
+          {
+            data.length > 0 &&  <button onClick={ ()=> dispatch( addPurchasesThunk()) }  type="button" className="cart__btn btn--buy">
             Comprar
           </button>
+          }
+         
         </div>
       </div>
     </div>

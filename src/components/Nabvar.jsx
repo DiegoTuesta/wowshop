@@ -1,7 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
 import Cart from "./Cart";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../store/slice/user.slice";
+import { isDark } from "../store/slice/dark.slice";
 
 // import { useState } from "react";
 function Nabvar() {
@@ -11,6 +13,10 @@ function Nabvar() {
   const cart = useSelector(state => state.cart)
   const user = useSelector(state => state.user)
   const navigate =useNavigate()
+  const dispatch = useDispatch()
+  const dark = useSelector(state => state.dark)
+
+  // console.log(user)
 
   // console.log(user)
   const showDropDown = () => {
@@ -24,8 +30,17 @@ function Nabvar() {
   };
   const logout = () => {
     localStorage.removeItem("token")
+    dispatch( setUser({}))
     navigate("/")
   }
+  const modeDark = () => {
+    document.documentElement.classList.toggle('dark')
+    dispatch( isDark() )
+  };
+
+  // useEffect( ()=>{
+  //   user = useSelector(state => state.user)
+  // }, [dispatch] )
   return (
     <>
       <header className="header">
@@ -67,8 +82,8 @@ function Nabvar() {
             </ul>
           </div>
           <div className="nav__buttons">
-            <button type="button" className="nav__btn btn--dark">
-              <i className="fa-solid fa-moon"></i>
+            <button onClick={modeDark } type="button" className="nav__btn btn--dark">
+              <i className={ dark? "fa-solid fa-sun" :"fa-solid fa-moon"}></i>
             </button>
             {token && (
               <button
@@ -85,7 +100,7 @@ function Nabvar() {
                 <i className="fa-solid fa-user"></i>
                 <ul className="dropdown">
                   <li>{user.email}</li>
-                  <li>Profile</li>
+                  <li> <Link to={"/profile"} >Profile</Link>  </li>
                   <li><div>1</div><button onClick={() => logout() }>Cerrar Sesion</button></li>
                 </ul>
               </div>

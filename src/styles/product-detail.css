@@ -25,6 +25,10 @@
     cursor: pointer;
     color: var(--txt-color)
 }
+.product__detail__one span a{
+ 
+    color: var(--txt-color)
+}
 .product__detail__one span i{
     color: var(--txt-color)
 }
