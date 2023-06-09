@@ -8,9 +8,13 @@ import Loader from "./components/Loader";
 import {useSelector} from "react-redux"
 import Purchases from "./pages/Purchases"
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import SignUp from "./pages/SignUp";
+// import Cart from "./components/Cart";
+
 
 function App() {
   const isLoading = useSelector( state => state.loader )
+
   return (
     <HashRouter>
     { isLoading && < Loader /> }
@@ -18,6 +22,7 @@ function App() {
     <Routes>
       <Route element={<Home />} path="/" />
       <Route element={<Login />} path="/login" />
+      <Route element={<SignUp />} path="/signup" />
       <Route element={ <ProtectedRoutes /> } >
         <Route element={<Purchases />} path="/purchases" />
       </Route>

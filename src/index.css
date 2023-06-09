@@ -10,6 +10,7 @@
     --bg-loading: rgba(255,255,255, .8);
     --primary-color : #ee5601;
     --bs-color: #dcdcdc;
+    --bg-menu-mobile: rgba(255,255,255,.95);
 
     /* tamaño de fuente */
     --big-font: 2rem;
@@ -75,18 +76,21 @@ button{
     grid-template-columns: 30% 68% ;
     gap: 2%;
 }
-  /* Show Menu */
-  .show--menu {
-    left: 0;
-  }
   
-  /* Show Notify */
-  .show--notify {
-    opacity: 1;
-    visibility: visible;
-  }
+.main-grid-detail{
+    display: grid;
+    width: 98%;
+    /* background-color: #dd191a; */
+    height: 100%;
+    margin: 4.4rem auto 1rem auto;
+    grid-template-columns: 78% 20% ;
+    gap: 2%;
+}
 
-@media (min-width: 768px){
+  
+
+
+/* @media (min-width: 768px){
     .nav__list{
         display: flex;
         align-items: center;
@@ -96,13 +100,13 @@ button{
     }
     .nav__menu
     .btn--close,
-    /* .btn--cart, */
+    /* .btn--cart, 
     .btn--menu {
       display: none;
     }
-}
+} */
 @media (max-width: 768px) {
-    .nav__menu {
+    /* .nav__menu {
       position: fixed;
       top: 0;
       left: -100%;
@@ -116,6 +120,24 @@ button{
       justify-content: center;
       align-items: center;
     }
+    .nav__list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .nav__menu .btn--close {
+        color: var(--txt-color);
+      }
+      .nav__link{
+        color: var(--txt-color);
+        transition: color .3s ease-in-out;
+        font-size: var(--big-font);
+    }
+    
+    .nav__link:hover {
+        background-color: var(--txt-white-nav);
+        color: var(--primary-color);
+    } */
     .main-grid{
         display: flex;
         flex-direction: column;
@@ -126,4 +148,26 @@ button{
     .btn-category{
         height: 2rem;
     }
+    .main-grid-detail{
+        display: flex;
+        flex-direction: column;
+    }
+   
   }
+  /* Show Menu */
+  @media (prefers-color-scheme: dark) {
+    :root.dark{
+        --bg-color: #252525;
+        /* --bg-color-dark: #252525; */
+        --txt-white-nav : white;
+        --txt-color: #dcdcdc;
+        --txt-sub-color: #4a4a4a;
+        /* --txt-sub-color: #dcdcdc; */
+        /* --txt-black: black;
+        --txt-sub-black: #4a4a4a; */
+        --bg-loading: rgba(0,0,0, .8);
+        --primary-color : #ee5601;
+        --bs-color: #4a4a4a;
+        --bg-menu-mobile: rgba(0,0,0,.95);
+    }
+}

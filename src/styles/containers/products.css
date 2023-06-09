@@ -50,6 +50,11 @@
     font-weight: var(--font-normal);
 }
 
+/* .product__quantity{
+    background-color: aqua;
+    width: 100%;
+} */
+
 .card__price{
     height: 2rem;
     /* background-color: yellow; */
@@ -57,6 +62,8 @@
     align-items: center;
     padding: .3rem;
     font-size: var(--normal-font);
+    color: var(--txt-color);
+    font-weight: var(--font-bold);
 }
 .card__footer{
     height: 3.7rem;
@@ -83,3 +90,7 @@
     display: block;
     /* cursor: pointer; */
 }
+/* .link-article:hover{
+    cursor: pointer;
+} */
+
