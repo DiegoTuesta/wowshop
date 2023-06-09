@@ -155,4 +155,19 @@ button{
    
   }
   /* Show Menu */
-  
+  @media (prefers-color-scheme: dark) {
+    :root.dark{
+        --bg-color: #252525;
+        /* --bg-color-dark: #252525; */
+        --txt-white-nav : white;
+        --txt-color: #dcdcdc;
+        --txt-sub-color: #4a4a4a;
+        /* --txt-sub-color: #dcdcdc; */
+        /* --txt-black: black;
+        --txt-sub-black: #4a4a4a; */
+        --bg-loading: rgba(0,0,0, .8);
+        --primary-color : #ee5601;
+        --bs-color: #4a4a4a;
+        --bg-menu-mobile: rgba(0,0,0,.95);
+    }
+}
