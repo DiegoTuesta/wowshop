@@ -11,13 +11,13 @@ const SignUp = () => {
     // "email": "john@gmail.com",
     // "password": "john1234",
     // "phone": "1234567890"
-    const defaultForm = () => ({
-      "firstName": "john",
-      "lastName": "doe",
-      "email": "john@gmail.com",
-      "password": "john1234",
-      "phone": "1234567890"
-    })
+    const defaultForm = {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": "",
+      "phone": ""
+    }
 
   const {register , handleSubmit, reset} = useForm()
   const signUp =  (data) =>  {
