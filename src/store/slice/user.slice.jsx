@@ -5,28 +5,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 export const userSlice = createSlice({
-    name: 'user',
-    initialState: "",
-    reducers: {
-        
-    }
+    name: "user",
+    initialState: {},
+    reducers:{
+        setUser1: (state, action) => action.payload,
+    },
 })
 
-export const {  } = userSlice.actions;
-
-export default userSlice.reducer;
-
-
-// export const loginThunk = (data) => dispatch => {
-//     dispatch(isLoading(true))
-//     axios.post(`https://e-commerce-api-v2.academlo.tech/api/v1/users/login`, data)
-//     .then(res => {
-//         dispatch(setToken(res.data.token))
-//         console.log(res.data.token)
-//     })
-//     .catch(console.log)
-//     .finally(() => dispatch(isLoading(false)))
-// }
+export const { setUser1  } = userSlice.actions;
+export default userSlice.reducer
 
 
 

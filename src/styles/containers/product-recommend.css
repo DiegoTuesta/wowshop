@@ -11,6 +11,7 @@
 } */
 .product__header img{
     width: 100%;
+    height: 100%;
 }
 .product__recommend h3{
     font-size: var(--tiny-font);
@@ -27,4 +28,16 @@
 .product__recommend:hover{
    border: 1px solid var(--txt-color);
    cursor: pointer;
+}
+@media (max-width: 768px) {
+.product__recommend{
+    width: 100% ;
+    /* height: 10rem; */
+    text-align: center;
+}
+.product__header{
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto;
+}
 }

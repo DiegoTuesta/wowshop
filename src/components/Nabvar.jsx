@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
 import Cart from "./Cart";
 import { useSelector } from "react-redux";
@@ -9,12 +9,23 @@ function Nabvar() {
 
   const token = localStorage.getItem("token");
   const cart = useSelector(state => state.cart)
+  const user = useSelector(state => state.user)
+  const navigate =useNavigate()
+
+  // console.log(user)
+  const showDropDown = () => {
+    document.querySelector(".dropdown").classList.toggle("show--dropdown");
+  };
   const showCart = () => {
     document.querySelector(".cart-shop").classList.toggle("show--cart");
   };
   const showMenu = () => {
     document.querySelector(".nav__menu").classList.toggle("show--menu");
   };
+  const logout = () => {
+    localStorage.removeItem("token")
+    navigate("/")
+  }
   return (
     <>
       <header className="header">
@@ -38,7 +49,12 @@ function Nabvar() {
                 </Link>
                 {!token && (
                   <Link to="/login" className="nav__link">
-                    <i className="fa-solid fa-user"></i> login
+                    <i className="fa-solid fa-user"></i> LogIn
+                  </Link>
+                )}
+                {!token && (
+                  <Link to="/signup" className="nav__link">
+                    <i className="fa-solid fa-user-plus"></i> SignUp
                   </Link>
                 )}
 
@@ -65,13 +81,14 @@ function Nabvar() {
               </button>
             )}
             {token && (
-              <button type="button" className="nav__btn btn--user">
+              <div onClick={showDropDown} type="button" className="nav__btn btn--user">
                 <i className="fa-solid fa-user"></i>
-                <ul>
-                  <li>asdasd</li>
-                  <li>asdasdsa</li>
+                <ul className="dropdown">
+                  <li>{user.email}</li>
+                  <li>Profile</li>
+                  <li><div>1</div><button onClick={() => logout() }>Cerrar Sesion</button></li>
                 </ul>
-              </button>
+              </div>
             )}
             <button
               onClick={showMenu}

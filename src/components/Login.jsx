@@ -2,25 +2,25 @@
 import { useForm } from "react-hook-form";
 import "../styles/login.css";
 import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import { isLoading } from "../store/slice/loader.slice";
 import axios from "axios";
+import {setUser1 } from '../store/slice/user.slice'
 
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // const tokens = useSelector(state => state.token)
-
-  const {register , handleSubmit} = useForm()
+    const {register , handleSubmit} = useForm()
 
  const login =  (data) =>  {
   dispatch(isLoading(true))
       axios.post(`https://e-commerce-api-v2.academlo.tech/api/v1/users/login`, data)
       .then(res => {
-          // dispatch(setToken(res.data.token))
-          localStorage.setItem("token", res.data.token)
-          // console.log(res.data.token)
-          navigate("/")
+          dispatch( setUser1(10) )
+          console.log("data:")
+          //localStorage.setItem("token", res.data?.token)
+          
+          //navigate("/")
       })
       .catch(err => {
         if (err.response.status === 401) {
