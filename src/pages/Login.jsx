@@ -9,7 +9,6 @@ import axios from "axios";
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // const tokens = useSelector(state => state.token)
 
   const {register , handleSubmit} = useForm()
 
@@ -17,9 +16,7 @@ const Login = () => {
   dispatch(isLoading(true))
       axios.post(`https://e-commerce-api-v2.academlo.tech/api/v1/users/login`, data)
       .then(res => {
-          // dispatch(setToken(res.data.token))
           localStorage.setItem("token", res.data.token)
-          // console.log(res.data.token)
           navigate("/")
       })
       .catch(err => {
