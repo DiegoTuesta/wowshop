@@ -2,9 +2,10 @@
 import { useForm } from "react-hook-form";
 import "../styles/login.css";
 import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { isLoading } from "../store/slice/loader.slice";
 import axios from "axios";
+import { setUser } from "../store/slice/user.slice";
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -16,6 +17,8 @@ const Login = () => {
   dispatch(isLoading(true))
       axios.post(`https://e-commerce-api-v2.academlo.tech/api/v1/users/login`, data)
       .then(res => {
+        console.log(res.data.user)
+          dispatch( setUser(res.data.user) )
           localStorage.setItem("token", res.data.token)
           navigate("/")
       })
